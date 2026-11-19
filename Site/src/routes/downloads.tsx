@@ -15,7 +15,7 @@ export const Route = createFileRoute("/downloads")({
           "Versões do Pitagorome para jogar no navegador ou no computador (Windows, macOS e Linux).",
       },
       { property: "og:title", content: "Baixe o Pitagorome" },
-      { property: "og:description", content: "Leve a Escola Pitagorome com você." },
+      { property: "og:description", content: "Leve a Escola Pitagórica com você." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

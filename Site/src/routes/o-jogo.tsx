@@ -33,8 +33,8 @@ function GamePage() {
   return (
     <>
       <PageHero eyebrow="O jogo" title="Três trimestres para salvar a escola">
-        Escolha nome e aparência, percorra a escola em visão de cima e converse com quem aparece.
-        Quando surge um problema, ele vira um desafio.
+        Tudo começa com uma historinha: o diretor antigo é demitido e você acha a vaga no jornal.
+        Depois, percorra a escola em visão de cima e transforme cada problema em um desafio.
       </PageHero>
       <HowTo />
       <Phases />
@@ -53,7 +53,8 @@ function HowTo() {
       <div>
         <SectionTitle eyebrow="Primeiros passos" title="Crie seu diretor ou diretora">
           Antes do tour, a Coordenadora pergunta seu nome. Você escolhe se é diretor ou diretora e
-          uma das aparências disponíveis.
+          uma das 13 aparências. Durante o jogo, a prancheta no canto da tela mostra a tarefa atual,
+          e o minimapa ajuda a achar cada sala.
         </SectionTitle>
         <div className="mt-10 space-y-3">
           <p className="font-display text-sm uppercase tracking-[0.2em] text-highlight">
@@ -146,7 +147,7 @@ function Phases() {
           ))}
         </ol>
 
-        {/* Um desafio jogável por fase (os da fase 2 e 3 vêm do site "cofounder") */}
+        {/* Um desafio para testar em cada fase */}
         <div className="mt-12 max-w-2xl">
           {phase.id === "fase-1" && (
             <div className="panel flex flex-wrap items-center justify-between gap-4 p-6">

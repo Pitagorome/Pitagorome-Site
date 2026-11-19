@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Você é o novo diretor da Escola Pitagorome. Explore a escola, converse com os personagens e resolva cada problema com matemática.",
+          "Você é o novo diretor da Escola Pitagórica. Explore a escola, converse com os personagens e resolva cada problema com matemática.",
       },
       { property: "og:title", content: "Pitagorome · Aprenda matemática administrando sua escola" },
       {
@@ -66,7 +66,7 @@ function Hero() {
     <section className="relative flex min-h-[92vh] items-center overflow-hidden">
       <img
         src={heroEscola}
-        alt="A Escola Pitagorome em pixel art, com alunos chegando pelo portão"
+        alt="A Escola Pitagórica em pixel art, com alunos chegando pelo portão"
         className="pixelated absolute inset-0 h-full w-full object-cover object-[70%_50%]"
         width={1920}
         height={1080}
@@ -83,13 +83,13 @@ function Hero() {
       <div className="relative mx-auto w-full max-w-6xl px-6 pt-28">
         <div className="max-w-2xl">
           <p className="hud inline-flex items-center gap-2 px-3 py-1.5 text-sm">
-            <span className="h-2 w-2 rounded-full bg-grass" /> Fase 1 jogável · feito no IFSP
+            <span className="h-2 w-2 rounded-full bg-grass" /> 3 fases jogáveis · feito no IFSP
           </p>
           <h1 className="mt-6 text-4xl leading-[1.05] sm:text-5xl text-primary-foreground [text-shadow:0_3px_0_var(--sky-deep)] md:text-6xl">
             Um dia de cada vez. Um problema por vez.
           </h1>
           <p className="mt-6 max-w-md text-lg text-primary-foreground/90">
-            Você é o novo diretor da Escola Pitagorome. Organize a rotina, ouça os conflitos e
+            Você é o novo diretor da Escola Pitagórica. Organize a rotina, ouça os conflitos e
             resolva tudo com matemática.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -114,14 +114,6 @@ function Hero() {
           <p className="flex items-center gap-2 font-semibold">
             <Check className="h-4 w-4 text-grass" /> Conflito no Horário
           </p>
-        </div>
-      </div>
-      <div
-        className="pointer-events-none absolute bottom-[26%] right-[30%] hidden lg:block"
-        style={{ animationDelay: "1.2s" }}
-      >
-        <div className="hud animate-bob px-4 py-2.5 shadow-float [animation-delay:1.5s]">
-          <p className="font-semibold text-accent">Diretor: você</p>
         </div>
       </div>
 
@@ -273,14 +265,14 @@ function Characters() {
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="panel inline-block max-w-2xl p-6 md:p-8">
             <p className="font-display text-sm uppercase tracking-[0.2em] text-highlight">
-              A Escola Pitagorome
+              A Escola Pitagórica
             </p>
             <h2 className="mt-2 text-3xl text-card-foreground md:text-4xl">
               Conheça quem trabalha (e quem estuda) por aqui
             </h2>
             <p className="mt-3 text-muted-foreground">
-              O diretor nunca parou em um emprego. Aceitou o cargo pelo café grátis, e o antigo
-              diretor havia desistido após três dias.
+              O antigo diretor, Otávio, foi demitido sem resolver nenhum problema da escola. A vaga
+              saiu no jornal, e agora quem cuida de tudo é você.
             </p>
             <Button asChild variant="panel" className="mt-5">
               <Link to="/personagens">
@@ -355,7 +347,8 @@ function Cta() {
             A escola precisa de um diretor.
           </h2>
           <p className="mt-4 text-lg text-accent-foreground/80">
-            O último desistiu depois de três dias. Será que você aguenta um trimestre inteiro?
+            O último foi demitido sem resolver nenhum problema. Será que você aguenta os três
+            trimestres?
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="panel" size="lg">

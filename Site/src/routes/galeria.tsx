@@ -17,7 +17,7 @@ export const Route = createFileRoute("/galeria")({
       { property: "og:title", content: "Galeria do Pitagorome" },
       {
         property: "og:description",
-        content: "Veja a Escola Pitagorome em pixel art, direto do jogo.",
+        content: "Veja a Escola Pitagórica em pixel art, direto do jogo.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -32,7 +32,7 @@ function GalleryPage() {
   return (
     <>
       <PageHero eyebrow="Galeria" title="A escola, quadro a quadro">
-        Capturas reais do jogo em desenvolvimento. Clique em uma imagem para ampliar.
+        Capturas reais do jogo. Clique em uma imagem para ampliar.
       </PageHero>
       <section className="mx-auto max-w-6xl px-6 py-24">
         <Reveal className="stagger grid gap-8 md:grid-cols-2">

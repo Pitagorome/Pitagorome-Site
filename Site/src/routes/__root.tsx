@@ -22,7 +22,7 @@ function NotFoundComponent() {
         <p className="font-sans text-lg font-bold text-highlight">Coordenadora</p>
         <h1 className="mt-2 text-5xl text-foreground">404</h1>
         <p className="mt-3 text-muted-foreground">
-          Hmm, essa sala não existe na Escola Pitagorome. Vamos voltar pelo corredor?
+          Hmm, essa sala não existe na Escola Pitagórica. Vamos voltar pelo corredor?
         </p>
         <div className="mt-6">
           <Link

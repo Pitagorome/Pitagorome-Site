@@ -11,9 +11,9 @@ export const Route = createFileRoute("/personagens")({
       {
         name: "description",
         content:
-          "Conheça a Coordenadora, o Zelador, o Professor de Matemática e quem mais você encontra na Escola Pitagorome.",
+          "Conheça a Coordenadora, o Zelador, o Professor de Matemática e quem mais você encontra na Escola Pitagórica.",
       },
-      { property: "og:title", content: "Personagens da Escola Pitagorome" },
+      { property: "og:title", content: "Personagens da Escola Pitagórica" },
       {
         property: "og:description",
         content: "A Coordenadora, o Zelador, o Professor de Matemática e os alunos.",
@@ -29,16 +29,17 @@ function CharactersPage() {
   return (
     <>
       <PageHero eyebrow="Personagens" title="Quem você encontra na escola">
-        O diretor nunca parou em um emprego. Foi vendedor, monitor de museu e animador de festa
-        vestido de triângulo, até que uma carta chegou: a Escola Pitagorome procurava um novo
-        diretor.
+        Vaga de malabarista, preenchida. Astronauta, também. Até que um anúncio no jornal chamou a
+        atenção: a Escola Pitagórica procurava alguém que gostasse de lógica e matemática.
       </PageHero>
 
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 lg:grid-cols-[1fr_1.2fr]">
         <div>
-          <SectionTitle eyebrow="A história" title="O anterior desistiu após três dias">
-            Ele aceitou pelo café grátis. No portão, dois alunos se acusavam de colar na prova de
-            matemática. Foi quando percebeu que talvez o antigo diretor tivesse um ponto.
+          <SectionTitle eyebrow="A história" title="O diretor anterior foi demitido">
+            Os pais reclamavam, os horários não fechavam e ninguém achava nada no almoxarifado. A
+            Secretaria de Educação demitiu o Diretor Otávio, e a Coordenadora pôs um anúncio no
+            jornal. Na manhã seguinte, você chega ao portão: "Quantos problemas uma escola pode ter,
+            afinal?"
           </SectionTitle>
         </div>
         <figure className="overflow-hidden rounded-2xl border-4 border-panel-border shadow-pixel-lg">
@@ -86,7 +87,8 @@ function CharactersPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-24">
         <SectionTitle eyebrow="Você" title="Escolha sua aparência">
-          Antes do tour, escolha nome, se é diretor ou diretora e um dos visuais.
+          Antes do tour, escolha nome, se é diretor ou diretora e um dos 13 visuais do jogo. Entre
+          eles estão os integrantes da equipe, alguns com farda e roupa de trabalho.
         </SectionTitle>
         <Reveal className="stagger mt-12 grid grid-cols-3 gap-4 md:gap-8">
           {DIRECTOR_LOOKS.map((l) => (

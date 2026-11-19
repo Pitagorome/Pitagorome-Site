@@ -8,11 +8,11 @@ export type DialogueLine = { speaker: string; text: string };
 export const INTRO_DIALOGUE: DialogueLine[] = [
   {
     speaker: "Coordenadora",
-    text: "Ah, você chegou! Eu sou a Coordenadora da Escola Pitagorome, estávamos realmente precisando de um novo diretor desde que o último foi embora.",
+    text: "Ah, você chegou! Eu sou a Coordenadora da Escola Pitagórica, estávamos realmente precisando de um novo diretor desde que o último foi embora. Os conflitos e os dilemas só têm aumentado.",
   },
   {
     speaker: "Coordenadora",
-    text: "Aqui na Escola Pitagorome nós vivemos um dia de cada vez. Seu papel como diretor será organizar a escola e solucionar problemas.",
+    text: "Aqui na Escola Pitagórica nós vivemos um dia de cada vez. Seu papel como diretor será organizar a escola e solucionar problemas.",
   },
   {
     speaker: "Coordenadora",
@@ -27,22 +27,22 @@ export const INTRO_DIALOGUE: DialogueLine[] = [
 export const FEATURES = [
   {
     title: "Explore a escola",
-    text: "Ande pelo corredor, pela biblioteca, pelo almoxarifado e pelo portão em visão de cima.",
+    text: "Ande em visão de cima por mais de dez ambientes: corredor, biblioteca, refeitório, pátio, Sala do Gerador e muito mais.",
     prop: "globe" as const,
   },
   {
     title: "Converse com todo mundo",
-    text: "A Coordenadora, o Zelador e o Professor de Matemática têm algo a dizer e, às vezes, uma pista.",
+    text: "A Coordenadora, o Zelador, o Professor de Matemática e a Cantineira têm algo a dizer e, às vezes, uma pista.",
     prop: "studentDesk" as const,
   },
   {
     title: "Resolva com matemática",
-    text: "Cada problema da escola vira um desafio: uma grade de horários, um cadeado, uma excursão.",
+    text: "Cada problema da escola vira um desafio: uma grade de horários, um gerador sem luz, uma máquina de refrigerante.",
     prop: "chalkboard" as const,
   },
   {
     title: "Avance pelos trimestres",
-    text: "Três fases, uma por trimestre, com 15 tarefas que ficam mais desafiadoras.",
+    text: "Três fases jogáveis, uma por trimestre, com 15 tarefas que ficam mais desafiadoras até o fim do ano.",
     prop: "muralBoard" as const,
   },
 ];
@@ -122,7 +122,7 @@ export const PHASES: Phase[] = [
       {
         title: "Conflito no Horário",
         topic: "lógica organizacional",
-        text: "Duas aulas marcadas no mesmo horário e na mesma sala. Reorganize a grade sem quebrar nenhuma regra.",
+        text: "Seis aulas, três horários e professores com horário limitado. Reorganize a grade sem quebrar nenhuma regra.",
       },
       {
         title: "O Cofre da Escola",
@@ -137,7 +137,7 @@ export const PHASES: Phase[] = [
       {
         title: "O Ônibus da Excursão",
         topic: "distribuição com restrições",
-        text: "Duas vans, no máximo 4 passageiros cada e exatamente 1 monitor por van.",
+        text: "Duas vans, no máximo 4 passageiros cada, 1 monitor por van e alunos que não podem ir juntos.",
       },
     ],
   },
@@ -145,26 +145,66 @@ export const PHASES: Phase[] = [
     id: "fase-2",
     label: "Fase 2 · 2º trimestre",
     title: "Equações, Proporções e Probabilidade",
-    status: "em desenvolvimento",
+    status: "jogável",
     tasks: [
-      { title: "O Troféu Desaparecido", topic: "equação de 1º grau" },
-      { title: "Figurinhas", topic: "proporções" },
-      { title: "O Gerador de Emergência", topic: "equações" },
-      { title: "As Mesas do Refeitório", topic: "equação simples" },
-      { title: "O Cartaz da Feira", topic: "proporção" },
+      {
+        title: "O Troféu Desaparecido",
+        topic: "equação de 1º grau",
+        text: "Véspera de inspeção e o troféu sumiu. O Zelador guardou num dos 15 armários e só deixou um bilhete com uma equação.",
+      },
+      {
+        title: "Figurinhas",
+        topic: "proporções",
+        text: "As figurinhas do mural da turma se misturaram. Descubra qual caixa mantém a proporção certa.",
+      },
+      {
+        title: "O Gerador de Emergência",
+        topic: "potência e raiz",
+        text: "A escola ficou sem luz. Ligue no máximo 3 alavancas para chegar a exatamente 30 de carga.",
+      },
+      {
+        title: "As Mesas do Refeitório",
+        topic: "multiplicação e divisão",
+        text: "Quatro turmas de 28 alunos almoçam em 2 turnos. Quantos lugares faltam na última mesa?",
+      },
+      {
+        title: "O Cartaz da Feira",
+        topic: "proporção",
+        text: "Os cartazes saíram em tamanhos diferentes. Qual deles mantém a proporção do modelo?",
+      },
     ],
   },
   {
     id: "fase-3",
     label: "Fase 3 · 3º trimestre",
     title: "Funções, Combinatória e Raciocínio Algébrico",
-    status: "em desenvolvimento",
+    status: "jogável",
     tasks: [
-      { title: "A Máquina de Refrigerante", topic: "função afim" },
-      { title: "As Equipes da Gincana", topic: "combinatória" },
-      { title: "As Luzes do Corredor", topic: "raciocínio algébrico" },
-      { title: "O Lugar da Foto Oficial", topic: "combinatória" },
-      { title: "A Decoração do Pátio", topic: "combinatória" },
+      {
+        title: "A Máquina de Refrigerante",
+        topic: "função afim",
+        text: "A máquina nova cobra de um jeito estranho. Regra de três não funciona: descubra a função.",
+      },
+      {
+        title: "As Equipes da Gincana",
+        topic: "combinação",
+        text: "Seis representantes, equipes de 3 e a ordem não importa. Quantas equipes diferentes existem?",
+      },
+      {
+        title: "As Luzes do Corredor",
+        topic: "raciocínio algébrico",
+        text: "Vinte lâmpadas em dois interruptores, e um controla 4 a mais que o outro. Monte a equação certa.",
+      },
+      {
+        title: "O Lugar da Foto Oficial",
+        topic: "combinatória",
+        text: "Cinco professores, três lugares: um na frente em destaque e uma dupla atrás. De quantas formas?",
+      },
+      {
+        title: "A Decoração do Pátio",
+        topic: "arranjo",
+        text: "Seis placas, três lugares no mural e a posição muda o resultado. Fim do ano letivo!",
+      },
     ],
   },
 ];
@@ -177,8 +217,27 @@ export const ROOMS: {
   wall: string;
   floorSize: [number, number];
   wallSize: [number, number];
-  prop: "plantPalm" | "chalkboard" | "libraryShelf" | "woodenTable" | "lockers" | "plantFicus";
+  prop:
+    | "plantPalm"
+    | "chalkboard"
+    | "libraryShelf"
+    | "woodenTable"
+    | "lockers"
+    | "locker"
+    | "plantFicus"
+    | "painting"
+    | "studentDesk"
+    | "teacherDesk";
 }[] = [
+  {
+    name: "Gabinete do Diretor",
+    text: "Sua sala. A grade de horários e o calendário da escola ficam aqui.",
+    floor: tiles.pisosMadeiraClara,
+    wall: tiles.paredesMadeiraVermelha,
+    floorSize: [16, 16],
+    wallSize: [16, 32],
+    prop: "teacherDesk",
+  },
   {
     name: "Corredor",
     text: "O centro da escola. Daqui saem todas as portas.",
@@ -226,12 +285,57 @@ export const ROOMS: {
   },
   {
     name: "Portão",
-    text: "Saída da excursão e chegada de cada novo dia.",
+    text: "Saída da excursão, chegada de cada novo dia e cenário da foto oficial.",
     floor: tiles.exteriorGrama,
     wall: tiles.exteriorCalcada,
     floorSize: [16, 16],
     wallSize: [16, 16],
     prop: "plantFicus",
+  },
+  {
+    name: "Sala dos Armários",
+    text: "Quinze armários numerados. Em um deles está o troféu da escola.",
+    floor: tiles.pisosCeramicaCinza,
+    wall: tiles.paredesAzul,
+    floorSize: [48, 32],
+    wallSize: [16, 32],
+    prop: "lockers",
+  },
+  {
+    name: "Sala de Artes",
+    text: "Onde a turma monta o mural de figurinhas.",
+    floor: tiles.pisosMadeiraClara,
+    wall: tiles.paredesRosa,
+    floorSize: [16, 16],
+    wallSize: [16, 32],
+    prop: "painting",
+  },
+  {
+    name: "Sala do Gerador",
+    text: "Quando a luz acaba, é aqui que tudo se resolve.",
+    floor: tiles.pisosCeramicaCinza,
+    wall: tiles.paredesMadeiraEscura,
+    floorSize: [48, 32],
+    wallSize: [16, 32],
+    prop: "locker",
+  },
+  {
+    name: "Refeitório",
+    text: "Mesas para dois turnos de almoço e uma máquina de refrigerante misteriosa.",
+    floor: tiles.pisosAzulejoAmarelo,
+    wall: tiles.paredesBege,
+    floorSize: [48, 32],
+    wallSize: [16, 32],
+    prop: "studentDesk",
+  },
+  {
+    name: "Pátio",
+    text: "Gincana, decoração de fim de ano e muito barulho no recreio.",
+    floor: tiles.pisosTijolo,
+    wall: tiles.paredesBege,
+    floorSize: [48, 32],
+    wallSize: [16, 32],
+    prop: "plantPalm",
   },
 ];
 
@@ -275,9 +379,15 @@ export const CHARACTERS: Character[] = [
   },
   {
     name: "Cantineira",
-    role: "Em breve",
-    text: "Dona da cantina e do refeitório, garante que contou tudo direitinho.",
-    planned: true,
+    role: "Dona do refeitório",
+    text: "Cuida do almoço e da máquina de refrigerante. Garante que contou tudo direitinho... quase.",
+    quote: "Eu contei tudo direitinho! Quer dizer... quase.",
+  },
+  {
+    name: "Diretor Otávio",
+    role: "O diretor anterior",
+    text: "Foi demitido pela Secretaria de Educação: nenhum problema da escola foi resolvido no ano dele.",
+    quote: "DEMITIDO?! Mas eu ia resolver tudo! Um dia... talvez... com calma...",
   },
   {
     name: "Secretária",
@@ -346,6 +456,8 @@ export const CONTROLS = [
   { keys: ["W", "A", "S", "D"], alt: "ou setas", action: "Andar pela escola" },
   { keys: ["E"], action: "Interagir com pessoas e objetos" },
   { keys: ["Espaço", "Enter"], action: "Avançar os diálogos" },
+  { keys: ["Tab"], action: "Abrir a prancheta com a tarefa e o objetivo" },
+  { keys: ["Esc"], action: "Pular a historinha do começo" },
 ];
 
 /**
