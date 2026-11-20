@@ -343,7 +343,8 @@ export type Character = {
   name: string;
   role: string;
   text: string;
-  sheet?: string;
+  /** Folhas de sprite do jogo (uma por personagem que aparece no cartão) */
+  sheets?: string[];
   quote?: string;
   planned?: boolean;
 };
@@ -353,60 +354,68 @@ export const CHARACTERS: Character[] = [
     name: "Coordenadora",
     role: "Sua guia",
     text: "Apresenta a escola, acompanha o tour e está sempre por perto quando você se sentir perdido.",
-    sheet: sprites.ameliaIdle,
+    sheets: [sprites.ameliaIdle],
     quote: "Sempre que se sentir perdido ou precisar de ajuda, é só me procurar!",
   },
   {
     name: "Zelador",
     role: "Guardião das chaves",
     text: "Guarda tudo em segurança, e depois esquece onde. Mas sempre deixa pistas.",
-    sheet: sprites.alexIdle,
+    sheets: [sprites.alexIdle],
     quote: "Não sei como conseguem sujar o chão sem sair da cadeira.",
   },
   {
     name: "Professor de Matemática",
     role: "Ajuda com um preço",
     text: "Responsável pela parte matemática da escola. Oferece ajuda, mas avisa que vai cobrar.",
-    sheet: sprites.bobIdle,
+    sheets: [sprites.bobIdle],
     quote: "Lembre-se, diretor: minha ajuda tem um preço... muahaha.",
   },
   {
     name: "João, Pedro e Lucas",
     role: "Alunos",
     text: "Um deles matou aula. Ouça os três depoimentos e descubra quem está mentindo.",
-    sheet: sprites.bobIdle,
+    sheets: [sprites.alunoJoaoIdle, sprites.alunoPedroIdle, sprites.alunoLucasIdle],
     quote: "Eu estava na aula o tempo todo!",
   },
   {
     name: "Cantineira",
     role: "Dona do refeitório",
     text: "Cuida do almoço e da máquina de refrigerante. Garante que contou tudo direitinho... quase.",
+    sheets: [sprites.cantineiraIdle],
     quote: "Eu contei tudo direitinho! Quer dizer... quase.",
   },
   {
     name: "Diretor Otávio",
     role: "O diretor anterior",
     text: "Foi demitido pela Secretaria de Educação: nenhum problema da escola foi resolvido no ano dele.",
+    sheets: [sprites.diretorAntigoIdle],
     quote: "DEMITIDO?! Mas eu ia resolver tudo! Um dia... talvez... com calma...",
   },
   {
-    name: "Secretária",
-    role: "Em breve",
-    text: "Lida com formulários e documentos da escola.",
-    planned: true,
-  },
-  {
-    name: "Inspetor",
-    role: "Em breve",
-    text: "Vigia os corredores e confisca o que voa.",
-    planned: true,
+    name: "Professora de Artes",
+    role: "Mural da turma",
+    text: "Está terminando o mural com a turma, mas as figurinhas se misturaram nas caixas.",
+    sheets: [sprites.professoraArtesIdle],
+    quote: "Ainda bem que apareceu. Acabamos misturando as figurinhas.",
   },
 ];
 
+/** Os 13 visuais do seletor "Crie seu personagem" (game_manager.gd: APPEARANCES e APPEARANCE_NAMES) */
 export const DIRECTOR_LOOKS = [
-  { src: sprites.diretorVisual1, label: "Visual 1" },
-  { src: sprites.diretorVisual2, label: "Visual 2" },
-  { src: sprites.diretorVisual3, label: "Visual 3" },
+  { sheet: sprites.adamIdle, label: "Visual 1" },
+  { sheet: sprites.escoteiro1Idle, label: "Visual 2" },
+  { sheet: sprites.escoteiro2Idle, label: "Visual 3" },
+  { sheet: sprites.carteiro1Idle, label: "Visual 4" },
+  { sheet: sprites.carteiro2Idle, label: "Visual 5" },
+  { sheet: sprites.grupo1Idle, label: "João" },
+  { sheet: sprites.grupo2Idle, label: "Edu" },
+  { sheet: sprites.grupo3Idle, label: "Guigas" },
+  { sheet: sprites.grupo4Idle, label: "Ana" },
+  { sheet: sprites.joaoEfommIdle, label: "João (EFOMM)" },
+  { sheet: sprites.guigasEfommIdle, label: "Guigas (EFOMM)" },
+  { sheet: sprites.eduTencelIdle, label: "Edu (Tenente-Coronel)" },
+  { sheet: sprites.anaCientistaIdle, label: "Ana Julia (Cientista/Engenheira)" },
 ];
 
 export const GALLERY = [
@@ -438,10 +447,11 @@ export const GALLERY = [
 ];
 
 export const TEAM = [
-  { name: "Ana Julia Cardoso Moser", sheet: sprites.ameliaIdle },
-  { name: "Eduardo de Lazzari Oliveira", sheet: sprites.adamIdle },
-  { name: "Guilherme Pereira de Oliveira", sheet: sprites.alexIdle },
-  { name: "João Paulo Queiroz Costa", sheet: sprites.bobIdle },
+  // Os personagens de cada integrante no seletor do jogo (tools/gerar_personagens.py)
+  { name: "Ana Julia Cardoso Moser", sheet: sprites.grupo4Idle },
+  { name: "Eduardo de Lazzari Oliveira", sheet: sprites.grupo2Idle },
+  { name: "Guilherme Pereira de Oliveira", sheet: sprites.grupo3Idle },
+  { name: "João Paulo Queiroz Costa", sheet: sprites.grupo1Idle },
 ];
 
 export const TECH = [

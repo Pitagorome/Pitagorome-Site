@@ -15,6 +15,24 @@ import sprites_ameliaIdle from "./sprites/amelia_idle.png";
 import sprites_ameliaRun from "./sprites/amelia_run.png";
 import sprites_bobIdle from "./sprites/bob_idle.png";
 import sprites_bobRun from "./sprites/bob_run.png";
+import sprites_alunoJoaoIdle from "./sprites/aluno_joao_idle.png";
+import sprites_alunoLucasIdle from "./sprites/aluno_lucas_idle.png";
+import sprites_alunoPedroIdle from "./sprites/aluno_pedro_idle.png";
+import sprites_anaCientistaIdle from "./sprites/ana_cientista_idle.png";
+import sprites_cantineiraIdle from "./sprites/cantineira_idle.png";
+import sprites_carteiro1Idle from "./sprites/carteiro1_idle.png";
+import sprites_carteiro2Idle from "./sprites/carteiro2_idle.png";
+import sprites_diretorAntigoIdle from "./sprites/diretor_antigo_idle.png";
+import sprites_eduTencelIdle from "./sprites/edu_tencel_idle.png";
+import sprites_escoteiro1Idle from "./sprites/escoteiro1_idle.png";
+import sprites_escoteiro2Idle from "./sprites/escoteiro2_idle.png";
+import sprites_grupo1Idle from "./sprites/grupo1_idle.png";
+import sprites_grupo2Idle from "./sprites/grupo2_idle.png";
+import sprites_grupo3Idle from "./sprites/grupo3_idle.png";
+import sprites_grupo4Idle from "./sprites/grupo4_idle.png";
+import sprites_guigasEfommIdle from "./sprites/guigas_efomm_idle.png";
+import sprites_joaoEfommIdle from "./sprites/joao_efomm_idle.png";
+import sprites_professoraArtesIdle from "./sprites/professora_artes_idle.png";
 import sprites_diretorVisual1 from "./sprites/diretor-visual-1.png";
 import sprites_diretorVisual2 from "./sprites/diretor-visual-2.png";
 import sprites_diretorVisual3 from "./sprites/diretor-visual-3.png";
@@ -70,6 +88,24 @@ export const sprites = {
   ameliaRun: sprites_ameliaRun,
   bobIdle: sprites_bobIdle,
   bobRun: sprites_bobRun,
+  alunoJoaoIdle: sprites_alunoJoaoIdle,
+  alunoLucasIdle: sprites_alunoLucasIdle,
+  alunoPedroIdle: sprites_alunoPedroIdle,
+  anaCientistaIdle: sprites_anaCientistaIdle,
+  cantineiraIdle: sprites_cantineiraIdle,
+  carteiro1Idle: sprites_carteiro1Idle,
+  carteiro2Idle: sprites_carteiro2Idle,
+  diretorAntigoIdle: sprites_diretorAntigoIdle,
+  eduTencelIdle: sprites_eduTencelIdle,
+  escoteiro1Idle: sprites_escoteiro1Idle,
+  escoteiro2Idle: sprites_escoteiro2Idle,
+  grupo1Idle: sprites_grupo1Idle,
+  grupo2Idle: sprites_grupo2Idle,
+  grupo3Idle: sprites_grupo3Idle,
+  grupo4Idle: sprites_grupo4Idle,
+  guigasEfommIdle: sprites_guigasEfommIdle,
+  joaoEfommIdle: sprites_joaoEfommIdle,
+  professoraArtesIdle: sprites_professoraArtesIdle,
   diretorVisual1: sprites_diretorVisual1,
   diretorVisual2: sprites_diretorVisual2,
   diretorVisual3: sprites_diretorVisual3,
@@ -113,4 +149,3 @@ export const props = {
   teacherDesk: props_teacherDesk,
   woodenTable: props_woodenTable,
 };
-

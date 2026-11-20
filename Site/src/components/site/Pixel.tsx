@@ -73,6 +73,32 @@ export function Sprite({
   );
 }
 
+/** One or more characters standing side by side (the sheets come from the game). */
+export function CharacterSprites({
+  sheets,
+  label,
+  scale = 4,
+  className,
+}: {
+  sheets: string[];
+  label?: string;
+  scale?: number;
+  className?: string;
+}) {
+  const s = sheets.length > 1 ? Math.max(2, scale - 1) : scale;
+  return (
+    <div
+      role={label ? "img" : undefined}
+      aria-label={label}
+      className={cn("flex items-end gap-1", className)}
+    >
+      {sheets.map((sheet, i) => (
+        <Sprite key={i} sheet={sheet} scale={s} />
+      ))}
+    </div>
+  );
+}
+
 /** Repeats one of the game's floor/wall tiles as a background. */
 export function TileFill({
   src,

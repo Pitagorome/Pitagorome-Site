@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, SectionTitle } from "@/components/site/PageHero";
-import { Sprite, TileFill } from "@/components/site/Pixel";
+import { CharacterSprites, Sprite, TileFill } from "@/components/site/Pixel";
 import { Reveal } from "@/components/site/Reveal";
 import { CHARACTERS, DIRECTOR_LOOKS, shots, tiles } from "@/lib/game-content";
 
@@ -60,8 +60,13 @@ function CharactersPage() {
               {CHARACTERS.map((c) => (
                 <article key={c.name} className="panel flex flex-col p-6">
                   <div className="flex h-36 items-end justify-center rounded-lg bg-secondary/60">
-                    {c.sheet ? (
-                      <Sprite sheet={c.sheet} scale={4} label={c.name} />
+                    {c.sheets?.length ? (
+                      <CharacterSprites
+                        sheets={c.sheets}
+                        scale={4}
+                        label={c.name}
+                        className="pb-2"
+                      />
                     ) : (
                       <span className="mb-10 font-display text-5xl text-secondary-foreground/40">
                         ?
@@ -90,16 +95,15 @@ function CharactersPage() {
           Antes do tour, escolha nome, se é diretor ou diretora e um dos 13 visuais do jogo. Entre
           eles estão os integrantes da equipe, alguns com farda e roupa de trabalho.
         </SectionTitle>
-        <Reveal className="stagger mt-12 grid grid-cols-3 gap-4 md:gap-8">
+        <Reveal className="stagger mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 lg:grid-cols-5">
           {DIRECTOR_LOOKS.map((l) => (
-            <figure key={l.label} className="panel flex flex-col items-center p-4 md:p-8">
-              <img
-                src={l.src}
-                alt={`Aparência do diretor: ${l.label}`}
-                className="pixelated h-32 w-auto md:h-56"
-                loading="lazy"
-              />
-              <figcaption className="mt-4 font-display text-highlight">{l.label}</figcaption>
+            <figure key={l.label} className="panel flex flex-col items-center p-4 md:p-6">
+              <div className="flex h-36 items-end">
+                <Sprite sheet={l.sheet} scale={4} label={`Aparência do diretor: ${l.label}`} />
+              </div>
+              <figcaption className="mt-3 text-center font-display text-sm text-highlight">
+                {l.label}
+              </figcaption>
             </figure>
           ))}
         </Reveal>

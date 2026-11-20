@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sprite } from "@/components/site/Pixel";
+import { CharacterSprites } from "@/components/site/Pixel";
 import { CHARACTERS } from "@/lib/game-content";
 
 /** Carrossel de personagens com rolagem e botões (do site "cofounder"), com os sprites do jogo. */
@@ -31,9 +31,9 @@ export function CharacterCarousel() {
             className="panel group flex w-[270px] shrink-0 flex-col p-4 transition-transform hover:-translate-y-1"
           >
             <div className="flex h-40 items-end justify-center rounded-lg bg-secondary/60 pb-2">
-              {c.sheet ? (
-                <Sprite
-                  sheet={c.sheet}
+              {c.sheets?.length ? (
+                <CharacterSprites
+                  sheets={c.sheets}
                   scale={4}
                   label={c.name}
                   className="transition-transform group-hover:-translate-y-1.5"

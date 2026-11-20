@@ -12,14 +12,21 @@ export const Route = createFileRoute("/novidades")({
   head: () => ({
     meta: [
       { title: "Novidades · Pitagorome" },
-      { name: "description", content: "Diário de desenvolvimento do Pitagorome com as últimas mudanças do repositório no GitHub." },
+      {
+        name: "description",
+        content:
+          "Diário de desenvolvimento do Pitagorome com as últimas mudanças do repositório no GitHub.",
+      },
       { property: "og:title", content: "Novidades do Pitagorome" },
-      { property: "og:description", content: "Acompanhe o desenvolvimento do jogo, atualização por atualização." },
+      {
+        property: "og:description",
+        content: "Acompanhe o desenvolvimento do jogo, atualização por atualização.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  loader: () => getRepoActivity({ data: { limit: 20 } }),
+  loader: () => getRepoActivity({ data: { limit: 5 } }),
   staleTime: 5 * 60_000,
   component: NewsPage,
   errorComponent: NewsError,
@@ -53,11 +60,15 @@ function NewsPage() {
             {data.repo ? (
               <dl className="mt-4 space-y-2 text-sm">
                 <div className="flex items-center justify-between">
-                  <dt className="flex items-center gap-2 text-muted-foreground"><Star className="h-4 w-4" /> Estrelas</dt>
+                  <dt className="flex items-center gap-2 text-muted-foreground">
+                    <Star className="h-4 w-4" /> Estrelas
+                  </dt>
                   <dd className="font-bold">{data.repo.stars}</dd>
                 </div>
                 <div className="flex items-center justify-between">
-                  <dt className="flex items-center gap-2 text-muted-foreground"><GitFork className="h-4 w-4" /> Forks</dt>
+                  <dt className="flex items-center gap-2 text-muted-foreground">
+                    <GitFork className="h-4 w-4" /> Forks
+                  </dt>
                   <dd className="font-bold">{data.repo.forks}</dd>
                 </div>
                 <div className="flex items-center justify-between">
@@ -79,7 +90,9 @@ function NewsPage() {
           {data.commits.length > 0 ? (
             <CommitList commits={data.commits} />
           ) : (
-            <p className="panel p-6 text-muted-foreground">{data.error ?? "Nenhuma novidade ainda."}</p>
+            <p className="panel p-6 text-muted-foreground">
+              {data.error ?? "Nenhuma novidade ainda."}
+            </p>
           )}
         </div>
       </section>
