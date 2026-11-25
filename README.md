@@ -6,15 +6,19 @@ No jogo, você é o novo diretor da Escola Pitagorome e resolve os problemas do 
 
 ## Páginas
 
-| Página | Endereço | O que tem |
+O site é uma **página única**: o menu e o rodapé são atalhos para cada seção.
+
+| Seção | Atalho | O que tem |
 | --- | --- | --- |
-| Início | `/` | Apresentação, números do jogo, diálogo da Coordenadora, carrossel de personagens, lousa interativa e últimas novidades |
-| O Jogo | `/o-jogo` | Como se joga, as 3 fases com suas tarefas, um desafio jogável por fase e os ambientes da escola |
-| Personagens | `/personagens` | Quem é quem na escola e as opções de visual do diretor |
-| Galeria | `/galeria` | Capturas de tela do jogo, com ampliação |
-| Novidades | `/novidades` | Últimos commits do repositório do jogo, carregados do GitHub |
-| Downloads | `/downloads` | Versões do jogo (por enquanto com o aviso "Em breve") |
-| Equipe | `/equipe` | Integrantes, tecnologias e estrutura do repositório |
+| Início | `/#inicio` | Apresentação, números do jogo, diálogo da Coordenadora, "Como funciona" e a lousa interativa |
+| O Jogo | `/#o-jogo` | Primeiros passos, as 3 fases com suas tarefas, um desafio jogável por fase, os ambientes e o Cofre |
+| Personagens | `/#personagens` | A história, quem é quem na escola e os 13 visuais do diretor |
+| Galeria | `/#galeria` | Capturas de tela do jogo, com ampliação |
+| Novidades | `/#novidades` | Os 5 últimos commits do repositório do jogo, carregados do GitHub |
+| Jogar agora | `/#jogar` | Botão para jogar online, controles e download para Windows |
+| Equipe | `/#equipe` | Integrantes, objetivos, tecnologias e estrutura do repositório |
+
+Os endereços antigos (`/o-jogo`, `/personagens`, `/galeria`, `/novidades`, `/jogar`, `/equipe` e `/downloads`) continuam funcionando e levam à seção certa.
 
 ## Recursos
 
@@ -24,7 +28,7 @@ No jogo, você é o novo diretor da Escola Pitagorome e resolve os problemas do 
   - Fase 2: O Troféu Desaparecido (uma equação).
   - Fase 3: A Máquina de Refrigerante (uma função afim).
 - **Diálogo animado:** a fala da Coordenadora aparece letra por letra, como no jogo.
-- **Carrossel de personagens** com os sprites animados do próprio jogo.
+- **Personagens animados** com os sprites do próprio jogo.
 - **Animações de entrada ao rolar** a página, barra de progresso da leitura e cabeçalho que fica compacto ao descer.
 - **Acessibilidade:** navegação por teclado e textos alternativos. Quem pede menos movimento no sistema vê as animações desligadas.
 
@@ -69,10 +73,11 @@ O site abre em `http://localhost:8080` (ou na porta que aparecer no terminal).
 
 ```
 Site/
-├── public/              arquivos servidos como estão (coloque aqui os downloads do jogo)
+├── public/              arquivos servidos como estão (o jogo para Windows fica em public/downloads/)
 └── src/
-    ├── routes/          uma página por arquivo (index, o-jogo, personagens, galeria, novidades, downloads, equipe)
-    ├── components/site/ partes do site (cabeçalho, rodapé, lousa, desafios, carrossel, downloads...)
+    ├── routes/          index.tsx monta a página única; os outros arquivos só redirecionam endereços antigos
+    ├── components/sections/ cada seção da página (O Jogo, Personagens, Galeria, Novidades, Jogar agora, Equipe)
+    ├── components/site/ partes do site (cabeçalho, rodapé, lousa, desafios...)
     ├── components/ui/   componentes de interface (shadcn/ui)
     ├── lib/             textos e dados do site (game-content.ts) e lógica dos desafios (puzzles.ts)
     ├── assets/          logo, imagem do topo e arte do jogo
@@ -85,10 +90,10 @@ Site/
 - **Conteúdos da lousa:** lista `QUADRO`, no mesmo arquivo.
 - **Logo:** troque `src/assets/logo.png` mantendo o nome do arquivo.
 - **Cores e fontes:** variáveis no começo de `src/styles.css`.
-- **Liberar os downloads:**
-  1. Coloque os arquivos em `public/downloads/`.
-  2. Preencha o campo `href` de cada item da lista `DOWNLOADS` em `src/lib/game-content.ts` (por exemplo, `"/downloads/pitagorome-windows.zip"`).
-  3. Mude `DOWNLOADS_SOON` para `false`.
+- **Link do botão "Jogar online":** `PLAY_ONLINE_URL`, em `src/lib/game-content.ts`.
+- **Publicar uma versão nova para Windows:**
+  1. Coloque o novo `.zip` em `public/downloads/` (e apague o antigo).
+  2. Atualize `WINDOWS_DOWNLOAD` em `src/lib/game-content.ts`: versão, caminho do arquivo e tamanho.
 
 ## Créditos
 

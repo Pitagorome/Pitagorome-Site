@@ -474,43 +474,14 @@ export const CONTROLS = [
 export const PLAY_ONLINE_URL = "https://pitagorome.github.io/Pitagorome/teste/";
 
 /**
- * DOWNLOADS. Enquanto DOWNLOADS_SOON for true, a página aparece coberta pelo aviso "Em breve".
- * Quando houver arquivos, coloque-os em public/downloads/ (ex.: public/downloads/pitagorome-windows.zip),
- * preencha o "href" de cada item (ex.: "/downloads/pitagorome-windows.zip") e mude DOWNLOADS_SOON para false.
- * Na versão de navegador, "external: true" abre o endereço do jogo hospedado em vez de baixar um arquivo.
+ * Download para Windows (seção Jogar agora). O arquivo fica em public/downloads/.
+ * Para publicar uma versão nova: troque o arquivo nessa pasta e atualize os campos abaixo.
  */
-export const DOWNLOADS_SOON = true;
-export const DOWNLOADS: {
-  tag: string;
-  name: string;
-  text: string;
-  action?: string;
-  external?: boolean;
-  href: string;
-  prop: "globe" | "studentDesk" | "teacherDesk" | "bookshelfWood";
-}[] = [
-  {
-    tag: "Computador",
-    name: "Windows",
-    text: "Pacote para computadores com Windows.",
-    href: "",
-    prop: "studentDesk",
-  },
-  {
-    tag: "Computador",
-    name: "macOS",
-    text: "Pacote para computadores com macOS.",
-    href: "",
-    prop: "teacherDesk",
-  },
-  {
-    tag: "Computador",
-    name: "Linux",
-    text: "Pacote para computadores com Linux.",
-    href: "",
-    prop: "bookshelfWood",
-  },
-];
+export const WINDOWS_DOWNLOAD = {
+  version: "1.0.2",
+  href: "/downloads/Pitagorome_v1.0.2_windows.zip",
+  size: "42 MB",
+};
 
 /** Estrutura de pastas do repositório do jogo (README). */
 export const REPO_TREE = `scenes/     cenas e ambientes

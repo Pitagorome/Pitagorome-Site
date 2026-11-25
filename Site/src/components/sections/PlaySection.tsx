@@ -1,10 +1,9 @@
-import { ExternalLink, Play } from "lucide-react";
+import { Download, ExternalLink, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ChapterHeader, SectionTitle } from "@/components/site/PageHero";
-import { Downloads } from "@/components/site/Downloads";
+import { ChapterHeader } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
-import { Sprite, TileFill } from "@/components/site/Pixel";
-import { CONTROLS, PLAY_ONLINE_URL, sprites, tiles } from "@/lib/game-content";
+import { Prop, Sprite, TileFill } from "@/components/site/Pixel";
+import { CONTROLS, PLAY_ONLINE_URL, WINDOWS_DOWNLOAD, sprites, tiles } from "@/lib/game-content";
 
 export function PlaySection() {
   return (
@@ -63,14 +62,32 @@ export function PlaySection() {
               </div>
             </Reveal>
 
-            <Reveal className="mt-20">
-              <div className="panel mb-10 flex flex-wrap items-end justify-between gap-6 p-6 md:p-8">
-                <SectionTitle eyebrow="Para baixar" title="Versões para o computador">
-                  Pacotes para jogar sem internet no Windows, no macOS e no Linux.
-                </SectionTitle>
+            <Reveal className="panel mt-12 grid items-center gap-8 p-8 md:grid-cols-[auto_1fr] md:p-12 lg:grid-cols-[auto_1fr_auto]">
+              <div className="flex h-36 items-end justify-center">
+                <Prop name="studentDesk" scale={4} />
+              </div>
+              <div>
+                <p className="font-display text-sm uppercase tracking-[0.2em] text-highlight">
+                  Para baixar
+                </p>
+                <h2 className="mt-2 text-3xl text-card-foreground md:text-4xl">Jogue no Windows</h2>
+                <p className="mt-3 max-w-xl text-muted-foreground">
+                  Versão {WINDOWS_DOWNLOAD.version}. Baixe o arquivo, extraia e abra o
+                  Pitagorome.exe. Depois de baixado, não precisa de internet para jogar.
+                </p>
+                <Button asChild variant="panel" size="lg" className="mt-6">
+                  <a href={WINDOWS_DOWNLOAD.href} download>
+                    <Download /> Baixar para Windows · {WINDOWS_DOWNLOAD.size}
+                  </a>
+                </Button>
+                <p className="mt-3 max-w-xl text-sm text-muted-foreground">
+                  Se o Windows mostrar &ldquo;O Windows protegeu o computador&rdquo;, clique em
+                  &ldquo;Mais informações&rdquo; e depois em &ldquo;Executar assim mesmo&rdquo;.
+                </p>
+              </div>
+              <div className="hidden lg:block">
                 <Sprite sheet={sprites.adamIdle} scale={4} label="Diretor" />
               </div>
-              <Downloads />
             </Reveal>
           </div>
         </TileFill>

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Github } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 import heroEscola from "@/assets/hero-escola.jpg";
 import { Button } from "@/components/ui/button";
 import { Prop, Sprite, TileFill } from "@/components/site/Pixel";
@@ -111,16 +111,6 @@ function Hero() {
               </a>
             </Button>
           </div>
-        </div>
-      </div>
-
-      {/* Floating HUD chips, like the in-game task tracker */}
-      <div className="pointer-events-none absolute right-[8%] top-[30%] hidden lg:block">
-        <div className="hud animate-bob px-4 py-2.5 shadow-float">
-          <p className="text-xs text-ink-foreground/70">Fase 1 · Tarefa 2</p>
-          <p className="flex items-center gap-2 font-semibold">
-            <Check className="h-4 w-4 text-grass" /> Conflito no Horário
-          </p>
         </div>
       </div>
 
