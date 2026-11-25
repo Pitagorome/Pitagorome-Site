@@ -9,7 +9,7 @@ export function Downloads() {
   return (
     <div className="relative">
       <div
-        className="stagger grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        className="stagger grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         {...(locked ? { inert: true, "aria-hidden": true } : {})}
       >
         {DOWNLOADS.map((d) => (
@@ -49,8 +49,8 @@ export function Downloads() {
             Em breve
           </span>
           <p className="max-w-md font-medium text-foreground">
-            Os downloads serão liberados quando o jogo for lançado. Acompanhe o desenvolvimento no
-            GitHub.
+            As versões para baixar serão liberadas quando o jogo for lançado. Enquanto isso, jogue
+            online pelo botão acima.
           </p>
           <Button asChild variant="cream">
             <a href={REPO_URL} target="_blank" rel="noreferrer">

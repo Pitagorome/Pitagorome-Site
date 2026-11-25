@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as GaleriaRouteImport } from './routes/galeria'
+import { Route as JogarRouteImport } from './routes/jogar'
 import { Route as NovidadesRouteImport } from './routes/novidades'
 import { Route as OJogoRouteImport } from './routes/o-jogo'
 import { Route as PersonagensRouteImport } from './routes/personagens'
@@ -37,6 +38,11 @@ const GaleriaRoute = GaleriaRouteImport.update({
   path: '/galeria',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JogarRoute = JogarRouteImport.update({
+  id: '/jogar',
+  path: '/jogar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NovidadesRoute = NovidadesRouteImport.update({
   id: '/novidades',
   path: '/novidades',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/downloads': typeof DownloadsRoute
   '/equipe': typeof EquipeRoute
   '/galeria': typeof GaleriaRoute
+  '/jogar': typeof JogarRoute
   '/novidades': typeof NovidadesRoute
   '/o-jogo': typeof OJogoRoute
   '/personagens': typeof PersonagensRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/downloads': typeof DownloadsRoute
   '/equipe': typeof EquipeRoute
   '/galeria': typeof GaleriaRoute
+  '/jogar': typeof JogarRoute
   '/novidades': typeof NovidadesRoute
   '/o-jogo': typeof OJogoRoute
   '/personagens': typeof PersonagensRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/downloads': typeof DownloadsRoute
   '/equipe': typeof EquipeRoute
   '/galeria': typeof GaleriaRoute
+  '/jogar': typeof JogarRoute
   '/novidades': typeof NovidadesRoute
   '/o-jogo': typeof OJogoRoute
   '/personagens': typeof PersonagensRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/downloads'
     | '/equipe'
     | '/galeria'
+    | '/jogar'
     | '/novidades'
     | '/o-jogo'
     | '/personagens'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/downloads'
     | '/equipe'
     | '/galeria'
+    | '/jogar'
     | '/novidades'
     | '/o-jogo'
     | '/personagens'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/downloads'
     | '/equipe'
     | '/galeria'
+    | '/jogar'
     | '/novidades'
     | '/o-jogo'
     | '/personagens'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   DownloadsRoute: typeof DownloadsRoute
   EquipeRoute: typeof EquipeRoute
   GaleriaRoute: typeof GaleriaRoute
+  JogarRoute: typeof JogarRoute
   NovidadesRoute: typeof NovidadesRoute
   OJogoRoute: typeof OJogoRoute
   PersonagensRoute: typeof PersonagensRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GaleriaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jogar': {
+      id: '/jogar'
+      path: '/jogar'
+      fullPath: '/jogar'
+      preLoaderRoute: typeof JogarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/novidades': {
       id: '/novidades'
       path: '/novidades'
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   DownloadsRoute: DownloadsRoute,
   EquipeRoute: EquipeRoute,
   GaleriaRoute: GaleriaRoute,
+  JogarRoute: JogarRoute,
   NovidadesRoute: NovidadesRoute,
   OJogoRoute: OJogoRoute,
   PersonagensRoute: PersonagensRoute,

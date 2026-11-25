@@ -470,6 +470,9 @@ export const CONTROLS = [
   { keys: ["Esc"], action: "Pular a historinha do começo" },
 ];
 
+/** Link do botão "Jogar online" da página Jogar agora. */
+export const PLAY_ONLINE_URL = "https://pitagorome.github.io/Pitagorome/teste/";
+
 /**
  * DOWNLOADS. Enquanto DOWNLOADS_SOON for true, a página aparece coberta pelo aviso "Em breve".
  * Quando houver arquivos, coloque-os em public/downloads/ (ex.: public/downloads/pitagorome-windows.zip),
@@ -486,15 +489,6 @@ export const DOWNLOADS: {
   href: string;
   prop: "globe" | "studentDesk" | "teacherDesk" | "bookshelfWood";
 }[] = [
-  {
-    tag: "HTML5",
-    name: "Versão para navegador",
-    text: "Jogue direto no navegador, sem instalar nada.",
-    action: "Jogar",
-    external: true,
-    href: "",
-    prop: "globe",
-  },
   {
     tag: "Computador",
     name: "Windows",

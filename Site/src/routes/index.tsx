@@ -4,14 +4,11 @@ import heroEscola from "@/assets/hero-escola.jpg";
 import { Button } from "@/components/ui/button";
 import { Prop, Sprite, TileFill } from "@/components/site/Pixel";
 import { DialogueBox } from "@/components/site/DialogueBox";
-import { CommitList } from "@/components/site/CommitList";
 import { SectionTitle } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { Lousa } from "@/components/site/Lousa";
-import { CharacterCarousel } from "@/components/site/CharacterCarousel";
 import {
   FEATURES,
-  GALLERY,
   INTRO_DIALOGUE,
   MATH_TOPICS,
   REPO_URL,
@@ -20,6 +17,12 @@ import {
   tiles,
 } from "@/lib/game-content";
 import { getRepoActivity } from "@/lib/github.functions";
+import { GameSection } from "@/components/sections/GameSection";
+import { CharactersSection } from "@/components/sections/CharactersSection";
+import { GallerySection } from "@/components/sections/GallerySection";
+import { NewsSection } from "@/components/sections/NewsSection";
+import { PlaySection } from "@/components/sections/PlaySection";
+import { TeamSection } from "@/components/sections/TeamSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,30 +43,34 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  loader: () => getRepoActivity({ data: { limit: 3 } }),
+  loader: () => getRepoActivity({ data: { limit: 5 } }),
   staleTime: 5 * 60_000,
   component: Index,
 });
 
+/** Página única: o menu leva a cada capítulo (#o-jogo, #personagens, #galeria, #novidades, #jogar, #equipe). */
 function Index() {
+  const news = Route.useLoaderData();
   return (
     <>
       <Hero />
       <Stats />
       <Intro />
       <Features />
-      <Showcase />
-      <Characters />
       <Topics />
-      <Devlog />
-      <Cta />
+      <GameSection />
+      <CharactersSection />
+      <GallerySection />
+      <NewsSection data={news} />
+      <PlaySection />
+      <TeamSection />
     </>
   );
 }
 
 function Hero() {
   return (
-    <section className="relative flex min-h-[92vh] items-center overflow-hidden">
+    <section id="inicio" className="relative flex min-h-[92vh] items-center overflow-hidden">
       <img
         src={heroEscola}
         alt="A Escola Pitagórica em pixel art, com alunos chegando pelo portão"
@@ -94,7 +101,7 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="game" size="lg">
-              <Link to="/o-jogo">
+              <Link to="/" hash="o-jogo">
                 Conhecer o jogo <ArrowRight />
               </Link>
             </Button>
@@ -205,90 +212,6 @@ function Features() {
   );
 }
 
-function Showcase() {
-  const [first, ...rest] = GALLERY;
-  const main = GALLERY.find((g) => g.title === "Primeira conversa") ?? first;
-  const side = rest.filter((g) => g !== main && g.title !== "Elenco").slice(0, 2);
-  if (!main) return null;
-  return (
-    <section className="bg-ink py-24 text-ink-foreground">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-xl">
-            <p className="font-display text-sm uppercase tracking-[0.2em] text-accent">
-              Direto do jogo
-            </p>
-            <h2 className="mt-2 text-3xl md:text-5xl">Cada sala esconde um problema</h2>
-          </div>
-          <Button asChild variant="game">
-            <Link to="/galeria">Ver galeria</Link>
-          </Button>
-        </div>
-        <Reveal className="mt-12 grid items-start gap-6 lg:grid-cols-[1.6fr_1fr]">
-          <figure className="overflow-hidden rounded-2xl border-4 border-panel-border shadow-pixel-lg">
-            <img
-              src={main.src}
-              alt={main.text}
-              className="pixelated w-full"
-              loading="lazy"
-              width={1227}
-              height={679}
-            />
-          </figure>
-          <div className="grid gap-6">
-            {side.map((g) => (
-              <figure
-                key={g.title}
-                className="overflow-hidden rounded-2xl border-4 border-panel-border"
-              >
-                <img
-                  src={g.src}
-                  alt={g.text}
-                  className="pixelated w-full"
-                  loading="lazy"
-                  width={1229}
-                  height={676}
-                />
-              </figure>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function Characters() {
-  return (
-    <section className="relative">
-      <TileFill src={tiles.pisosTaco} w={48} h={32} scale={3} className="py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="panel inline-block max-w-2xl p-6 md:p-8">
-            <p className="font-display text-sm uppercase tracking-[0.2em] text-highlight">
-              A Escola Pitagórica
-            </p>
-            <h2 className="mt-2 text-3xl text-card-foreground md:text-4xl">
-              Conheça quem trabalha (e quem estuda) por aqui
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              O antigo diretor, Otávio, foi demitido sem resolver nenhum problema da escola. A vaga
-              saiu no jornal, e agora quem cuida de tudo é você.
-            </p>
-            <Button asChild variant="panel" className="mt-5">
-              <Link to="/personagens">
-                Todos os personagens <ArrowRight />
-              </Link>
-            </Button>
-          </Reveal>
-          <Reveal className="mt-8">
-            <CharacterCarousel />
-          </Reveal>
-        </div>
-      </TileFill>
-    </section>
-  );
-}
-
 function Topics() {
   return (
     <section className="bg-card py-24">
@@ -305,68 +228,5 @@ function Topics() {
         </Reveal>
       </div>
     </section>
-  );
-}
-
-function Devlog() {
-  return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
-      <Reveal className="grid gap-10 md:grid-cols-[1fr_1.4fr]">
-        <div>
-          <SectionTitle eyebrow="Diário de desenvolvimento" title="Fresquinho do repositório">
-            As últimas mudanças da equipe, direto do GitHub do Pitagorome.
-          </SectionTitle>
-          <Button asChild variant="panel" className="mt-8">
-            <Link to="/novidades">
-              Todas as novidades <ArrowRight />
-            </Link>
-          </Button>
-        </div>
-        <LatestCommits />
-      </Reveal>
-    </section>
-  );
-}
-
-function LatestCommits() {
-  const data = Route.useLoaderData();
-  if (data.error || data.commits.length === 0) {
-    return (
-      <p className="panel p-6 text-muted-foreground">{data.error ?? "Nenhuma novidade ainda."}</p>
-    );
-  }
-  return <CommitList commits={data.commits} />;
-}
-
-function Cta() {
-  return (
-    <Reveal as="section" className="mx-auto max-w-6xl px-6">
-      <div className="panel relative overflow-hidden bg-accent p-10 md:p-14">
-        <div className="relative z-10 max-w-xl">
-          <h2 className="text-3xl text-accent-foreground md:text-5xl">
-            A escola precisa de um diretor.
-          </h2>
-          <p className="mt-4 text-lg text-accent-foreground/80">
-            O último foi demitido sem resolver nenhum problema. Será que você aguenta os três
-            trimestres?
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild variant="panel" size="lg">
-              <Link to="/o-jogo">Ver as fases</Link>
-            </Button>
-            <Button asChild variant="cream" size="lg">
-              <a href={REPO_URL} target="_blank" rel="noreferrer">
-                <Github /> Baixar no GitHub
-              </a>
-            </Button>
-          </div>
-        </div>
-        <div className="pointer-events-none absolute -bottom-2 right-6 hidden items-end gap-3 md:flex">
-          <Prop name="teacherDesk" scale={4} />
-          <Sprite sheet={sprites.adamIdle} scale={6} />
-          <Prop name="plantPalm" scale={5} />
-        </div>
-      </div>
-    </Reveal>
   );
 }

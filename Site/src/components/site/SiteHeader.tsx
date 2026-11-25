@@ -6,18 +6,20 @@ import { Button } from "@/components/ui/button";
 import { REPO_URL } from "@/lib/game-content";
 import { cn } from "@/lib/utils";
 
-const NAV = [
-  { to: "/o-jogo", label: "O Jogo" },
-  { to: "/personagens", label: "Personagens" },
-  { to: "/galeria", label: "Galeria" },
-  { to: "/novidades", label: "Novidades" },
-  { to: "/downloads", label: "Downloads" },
-  { to: "/equipe", label: "Equipe" },
+// Página única: cada item é um atalho para uma seção da página inicial.
+export const NAV = [
+  { hash: "o-jogo", label: "O Jogo" },
+  { hash: "personagens", label: "Personagens" },
+  { hash: "galeria", label: "Galeria" },
+  { hash: "novidades", label: "Novidades" },
+  { hash: "jogar", label: "Jogar agora" },
+  { hash: "equipe", label: "Equipe" },
 ] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
+  const [current, setCurrent] = useState<string | null>(null);
   const bar = useRef<HTMLDivElement>(null);
 
   // Barra de progresso da rolagem e cabeçalho compacto ao rolar (do site "cofounder").
@@ -30,6 +32,13 @@ export function SiteHeader() {
         const max = Math.max(1, h.scrollHeight - window.innerHeight);
         if (bar.current) bar.current.style.transform = `scaleX(${Math.min(1, h.scrollTop / max)})`;
         setCompact(h.scrollTop > 40);
+        // Destaca no menu a seção em que o visitante está (a última que já passou do meio da tela).
+        let here: string | null = null;
+        for (const n of NAV) {
+          const el = document.getElementById(n.hash);
+          if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.45) here = n.hash;
+        }
+        setCurrent(here);
       });
     };
     onScroll();
@@ -57,7 +66,7 @@ export function SiteHeader() {
             compact ? "py-2.5" : "py-5",
           )}
         >
-          <Link to="/" className="shrink-0" aria-label="Pitagorome, início">
+          <Link to="/" hash="inicio" className="shrink-0" aria-label="Pitagorome, início">
             <img
               src={logo}
               alt="Pitagorome"
@@ -76,10 +85,15 @@ export function SiteHeader() {
           >
             {NAV.map((n) => (
               <Link
-                key={n.to}
-                to={n.to}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-primary-foreground/85 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
-                activeProps={{ className: "bg-primary-foreground/15 text-primary-foreground" }}
+                key={n.hash}
+                to="/"
+                hash={n.hash}
+                activeOptions={{ includeHash: true }}
+                data-current={current === n.hash || undefined}
+                className={cn(
+                  "rounded-lg px-3 py-2 text-sm font-medium text-primary-foreground/85 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground",
+                  current === n.hash && "bg-primary-foreground/15 text-primary-foreground",
+                )}
               >
                 {n.label}
               </Link>
@@ -114,8 +128,10 @@ export function SiteHeader() {
         >
           {NAV.map((n) => (
             <Link
-              key={n.to}
-              to={n.to}
+              key={n.hash}
+              to="/"
+              hash={n.hash}
+              activeOptions={{ includeHash: true }}
               onClick={() => setOpen(false)}
               className="rounded-lg px-4 py-3 font-medium text-primary-foreground hover:bg-primary-foreground/10"
             >

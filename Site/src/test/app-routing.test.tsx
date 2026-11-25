@@ -15,6 +15,12 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
 
+  it("matches the play page", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    expect(router.matchRoutes("/jogar").at(-1)?.routeId).toBe("/jogar");
+  });
+
   it("matches the downloads page", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
 

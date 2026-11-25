@@ -23,7 +23,14 @@ export function SiteFooter() {
       <div className="bg-ink text-ink-foreground">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
           <div className="space-y-4">
-            <img src={logo} alt="Pitagorome" className="h-10 w-auto" width={520} height={84} loading="lazy" />
+            <img
+              src={logo}
+              alt="Pitagorome"
+              className="h-10 w-auto"
+              width={520}
+              height={84}
+              loading="lazy"
+            />
             <p className="max-w-sm text-sm text-ink-foreground/75">
               Jogo educativo de matemática e administração escolar. Projeto do Instituto Federal de
               São Paulo, Campus São Paulo.
@@ -33,23 +40,23 @@ export function SiteFooter() {
             <p className="font-display text-accent">O jogo</p>
             <ul className="mt-3 space-y-2 text-sm text-ink-foreground/80">
               <li>
-                <Link to="/o-jogo" className="hover:text-accent">
+                <Link to="/" hash="o-jogo" className="hover:text-accent">
                   Como se joga
                 </Link>
               </li>
               <li>
-                <Link to="/personagens" className="hover:text-accent">
+                <Link to="/" hash="personagens" className="hover:text-accent">
                   Personagens
                 </Link>
               </li>
               <li>
-                <Link to="/galeria" className="hover:text-accent">
+                <Link to="/" hash="galeria" className="hover:text-accent">
                   Galeria
                 </Link>
               </li>
               <li>
-                <Link to="/downloads" className="hover:text-accent">
-                  Downloads
+                <Link to="/" hash="jogar" className="hover:text-accent">
+                  Jogar agora
                 </Link>
               </li>
             </ul>
@@ -58,12 +65,12 @@ export function SiteFooter() {
             <p className="font-display text-accent">Projeto</p>
             <ul className="mt-3 space-y-2 text-sm text-ink-foreground/80">
               <li>
-                <Link to="/novidades" className="hover:text-accent">
+                <Link to="/" hash="novidades" className="hover:text-accent">
                   Novidades
                 </Link>
               </li>
               <li>
-                <Link to="/equipe" className="hover:text-accent">
+                <Link to="/" hash="equipe" className="hover:text-accent">
                   Equipe
                 </Link>
               </li>
